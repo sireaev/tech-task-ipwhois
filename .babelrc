@@ -1,0 +1,24 @@
+{
+    "presets": ["@babel/env", "@babel/typescript"],
+    "plugins": [
+        ["@babel/transform-runtime"],
+        "@babel/plugin-transform-class-properties",
+        "@babel/plugin-transform-object-rest-spread",
+        [
+            "module-resolver",
+            {
+                "root": ["./src/"],
+                "alias": {
+                    "config": "./src/config",
+                    "controllers": "./src/controllers",
+                    "helpers": "./src/helpers",
+                    "interfaces": "./src/interfaces",
+                    "migrations": "./src/migrations",
+                    "models": "./src/models",
+                    "routes": "./src/routes"
+                },
+                "extensions": [".js", ".ts"]
+            }
+        ]
+    ]
+}
