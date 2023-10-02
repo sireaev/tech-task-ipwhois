@@ -25,3 +25,16 @@ routes.get(
         return res.status(200).json(buildResponse);
     })
 );
+
+routes.delete(
+    '/lookup/:ip',
+    asyncHandler(async function getOne(
+        req: Request,
+        res: Response
+    ): Promise<any> {
+        const { ip } = req.params;
+        await LogService.deleteOne(<string>ip);
+
+        return res.status(201).json();
+    })
+);

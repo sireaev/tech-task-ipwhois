@@ -29,6 +29,12 @@ const create = async (log: Partial<LogModel>) => {
     return l.get({ plain: true });
 };
 
+const deleteOne = async (ip: string) => {
+    const l = await Log.destroy({ where: { ip }});
+
+    return l;
+};
+
 const deleteMinutePassedLogs = async () => {
     const result: number = await Log.destroy(<any>{
         where: {
@@ -51,4 +57,5 @@ CronService.scheduleForMinute(deleteMinutePassedLogs);
 export default {
     getOne,
     create,
+    deleteOne,
 };
